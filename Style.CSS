@@ -1,0 +1,679 @@
+
+/* ============================================================
+   KWETUTECH — STYLESHEET
+   Order follows the HTML page from top to bottom:
+   1. Base / variables
+   2. Layout
+   3. Typography
+   4. Buttons
+   5. Header + navigation
+   6. Home
+   7. About
+   8. What We Do
+   9. Projects
+   10. Impact
+   11. Story
+   12. Vision
+   13. Get Involved
+   14. Contact form
+   15. Footer
+   16. Accessibility
+/* ============================================================
+   1. BASE / VARIABLES
+   ============================================================ */
+
+/* Brand colours used everywhere on the site */
+:root {
+  --blue: #0b2a4a;          /* dark navy: header, footer, headings */
+  --arduino: #00979d;       /* Arduino teal-blue: card borders */
+  --arduino-dark: #00797f;  /* darker teal: Home background */
+  --accent: #e47128;        /* orange: logo, buttons, underlines, hover */
+  --ink: #14202b;           /* main text colour */
+  --white: #ffffff;
+  --soft: #f3f5f7;          /* light grey: alternating section background */
+}
+
+/* Make padding and border part of the element's width */
+* {
+  box-sizing: border-box;
+}
+
+/* Leave room above anchors so the sticky header doesn't cover titles */
+html {
+  scroll-padding-top: 5rem;
+}
+
+/* Smooth scrolling, but only if the user allows motion */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Page defaults: font, size, colour, line height */
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--ink);
+  overflow-wrap: break-word;
+}
+
+
+/* ============================================================
+   2. LAYOUT
+   ============================================================ */
+
+/* Header, sections and footer share the same side padding,
+   so content lines up in one column */
+header,
+section,
+footer {
+  padding-inline: max(1.25rem, calc((100% - 68rem) / 2));
+}
+
+/* Space above and below every section */
+section {
+  padding-block: clamp(3rem, 8vw, 6rem);
+}
+
+/* Every even section gets the soft grey background */
+main section:nth-of-type(even) {
+  background: var(--soft);
+}
+
+
+/* ============================================================
+   3. TYPOGRAPHY
+   ============================================================ */
+
+/* Shared heading style */
+h1, h2, h3 {
+  line-height: 1.15;
+  font-weight: 800;
+}
+
+/* Main page title (Home) */
+h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(2rem, 7vw, 4rem);
+  letter-spacing: -0.02em;
+}
+
+/* Section titles: sized down, with an orange underline */
+h2 {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 0 1.5rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 0.25rem solid var(--accent);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  letter-spacing: -0.01em;
+  color: var(--blue);
+}
+
+/* Card titles (What We Do, Projects, Get Involved) */
+h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+  color: var(--blue);
+}
+
+/* Limit paragraph width for easier reading */
+section p {
+  max-width: 60ch;
+}
+
+/* Footer headings sit on a dark background, so use white */
+footer h2 {
+  color: var(--white);
+}
+
+
+/* ============================================================
+   4. BUTTONS
+   ============================================================ */
+
+/* Orange pill-style button used across the site */
+.button {
+  display: inline-block;
+  max-width: 100%;
+  margin-top: 1rem;
+  padding: 0.8rem 1.5rem;
+  border: 2px solid var(--accent);
+  border-radius: 0.5rem;
+  background: var(--accent);
+  color: var(--blue);
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Button turns white on hover */
+.button:hover {
+  border-color: var(--white);
+  background: var(--white);
+}
+
+
+/* ============================================================
+   5. HEADER + NAVIGATION  (mobile first)
+   ============================================================ */
+
+/* Sticky bar at the top of the page */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-block: 0.75rem;
+  background: var(--blue);
+}
+
+/* Site name on the left */
+.logo {
+  color: var(--accent);
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+/* --- Hamburger button ---
+   Middle bar = background, top and bottom bars = ::before and ::after.
+   The box is invisible (transparent) until hover. */
+#menu-button {
+  position: relative;
+  flex-shrink: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 2px solid transparent;
+  border-radius: 0.5rem;
+  background: linear-gradient(currentColor, currentColor) center / 1.4rem 0.16rem no-repeat;
+  color: var(--white);
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, background-size 0.2s ease;
+}
+
+/* Top and bottom bars of the hamburger */
+#menu-button::before,
+#menu-button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1.4rem;
+  height: 0.16rem;
+  margin: -0.08rem 0 0 -0.7rem;
+  border-radius: 0.1rem;
+  background: currentColor;
+  transition: transform 0.25s ease;
+}
+
+#menu-button::before { transform: translateY(-0.45rem); }
+#menu-button::after  { transform: translateY(0.45rem); }
+
+/* Hover state: orange border + orange icon */
+#menu-button:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Open state: the three bars become an X */
+#menu-button[aria-expanded="true"] { background-size: 0 0.16rem; }
+#menu-button[aria-expanded="true"]::before { transform: rotate(45deg); }
+#menu-button[aria-expanded="true"]::after  { transform: rotate(-45deg); }
+
+/* --- Mobile menu card ---
+   Small dropdown card under the header; links stacked; fades in */
+#menu {
+  position: absolute;
+  top: 100%;
+  left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: min(16rem, calc(100% - 2.5rem));
+  max-height: calc(100vh - 5rem);
+  max-height: calc(100dvh - 5rem);
+  padding: 0.5rem;
+  overflow-y: auto;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.75rem;
+  background: var(--blue);
+  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.3);
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-0.5rem);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+}
+
+/* The menu is shown only when the button is expanded */
+#menu-button[aria-expanded="true"] ~ #menu {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+}
+
+/* Links: the box exists but is transparent. Shows on hover only */
+#menu a {
+  padding: 0.7rem 1rem;
+  border: 2px solid transparent;
+  border-radius: 0.5rem;
+  color: var(--white);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+/* Hovered link: orange text + orange border + faint background */
+#menu a:hover {
+  border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--accent);
+}
+
+/* --- Desktop navigation ---
+   From 70rem up: no hamburger, links in one row */
+@media (min-width: 70rem) {
+  #menu-button {
+    display: none;
+  }
+
+  #menu {
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.25rem;
+    width: auto;
+    max-height: none;
+    margin-left: auto;
+    padding: 0;
+    overflow: visible;
+    border: 0;
+    background: none;
+    box-shadow: none;
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+  }
+
+  #menu a {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.95rem;
+  }
+}
+
+
+/* ============================================================
+   6. HOME  (#home)
+   ============================================================ */
+
+/* Full-height hero with a background image */
+#home {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 85vh;
+  background: var(--arduino-dark);
+  color: var(--white);
+}
+
+/* Background image + dark overlay, behind the text */
+#home::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background:
+    linear-gradient(rgba(0, 60, 64, 0.35), rgba(11, 42, 74, 0.35)),
+    url("IMAGES/Materials.jpg") center / cover no-repeat;
+
+  animation: slow-zoom 3s ease-in-out infinite alternate;
+}
+
+/* Background keeps zooming in and out */
+@keyframes slow-zoom {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.15);
+  }
+}
+
+/* Bigger paragraph text on the hero */
+#home p {
+  font-size: 1.25rem;
+}
+
+
+/* ============================================================
+   7. ABOUT  (#about)
+   ============================================================ */
+
+/* The About image: rounded, teal border, 4:3 crop */
+#about img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  margin-top: 1.5rem;
+  border: 2px solid var(--arduino);
+  border-radius: 0.75rem;
+  object-fit: cover;
+}
+
+/* On wider screens: text on the left, picture on the right */
+@media (min-width: 50rem) {
+  #about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 3rem;
+    align-items: start;
+  }
+
+  #about h2 {
+    grid-column: 1 / -1;
+  }
+
+  #about p {
+    grid-column: 1;
+  }
+
+  #about img {
+    grid-column: 2;
+    grid-row: 2 / span 2;
+    margin-top: 0;
+  }
+}
+
+
+/* ============================================================
+   8. WHAT WE DO  (#what-we-do)  +  9. PROJECTS  (#projects)
+       + 13. GET INVOLVED  (#get-involved)
+       These three sections share the same card grid.
+   ============================================================ */
+
+/* Cards in a responsive grid */
+#what-we-do,
+#projects,
+#get-involved {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr));
+  gap: 1.5rem;
+}
+
+/* Section title spans the full row */
+#what-we-do h2,
+#projects h2,
+#get-involved h2 {
+  grid-column: 1 / -1;
+  margin-bottom: 0;
+}
+
+/* "Join Us Now" button spans the full row, sits on the left */
+#get-involved .button {
+  grid-column: 1 / -1;
+  justify-self: start;
+}
+
+/* Card look shared by all <article> elements */
+article {
+  padding: 1.5rem;
+  border: 2px solid var(--arduino);
+  border-radius: 0.75rem;
+  background: var(--white);
+  box-shadow: inset 0 0.3rem var(--accent);
+}
+
+/* Project images: rounded, 4:3 crop */
+#projects img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+
+
+/* ============================================================
+   10. OUR IMPACT  (#impact)
+   ============================================================ */
+
+/* Three small photo cards in one row */
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* Each photo + caption card */
+.impact-grid figure {
+  margin: 0;
+  border: 2px solid var(--arduino);
+  border-radius: 0.75rem;
+  background: var(--white);
+  overflow: hidden;
+}
+
+/* Image: 4:3 crop */
+.impact-grid img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+/* Caption under each photo */
+.impact-grid figcaption {
+  padding: 0.6rem 0.75rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Caption title (blue) */
+.impact-grid figcaption strong {
+  display: block;
+  color: var(--blue);
+  margin-bottom: 0.15rem;
+}
+
+
+/* ============================================================
+   11. OUR STORY  (#story)  +  12. OUR VISION  (#vision)
+       These two sections use only base typography.
+       (No extra rules needed.)
+   ============================================================ */
+
+
+/* ============================================================
+   14. CONTACT FORM  (#contact)
+   ============================================================ */
+
+/* Form width and vertical rhythm */
+#join-form {
+  max-width: 40rem;
+  margin-block: 1.5rem 3rem;
+}
+
+/* Each label + input group */
+.field {
+  margin-bottom: 1.25rem;
+}
+
+/* Labels */
+.field label {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--blue);
+  font-weight: 600;
+}
+
+/* Inputs, selects and textareas share the same look */
+.field input,
+.field select,
+.field textarea {
+  display: block;
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  border: 2px solid var(--arduino);
+  border-radius: 0.5rem;
+  background: var(--white);
+  color: var(--ink);
+  font: inherit;
+  transition: border-color 0.2s ease;
+}
+
+.field input[type="checkbox"] {
+  display: inline-block;
+  width: auto;
+  margin-right: 0.5rem;
+}
+
+/* Textareas: taller and resizable */
+.field textarea {
+  min-height: 7rem;
+  resize: vertical;
+}
+
+/* Hover state: border turns orange */
+.field input:hover,
+.field select:hover,
+.field textarea:hover {
+  border-color: var(--accent);
+}
+
+/* Invalid field: red border (set by JavaScript) */
+.field [aria-invalid="true"] {
+  border-color: #b3261e;
+}
+
+/* Hint text and error text */
+.hint,
+.error {
+  margin: 0.35rem 0 0;
+  font-size: 0.95rem;
+}
+
+/* Error text in red */
+.error {
+  color: #b3261e;
+}
+
+/* Hide empty error paragraphs */
+.error:empty {
+  display: none;
+}
+
+/* Word counter (student "why" field) */
+#word-counter {
+  font-weight: 700;
+}
+
+/* Counter turns red when over the limit */
+#word-counter.over {
+  color: #b3261e;
+}
+
+/* Submit button uses the same .button style */
+#join-form .button {
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Success message after submitting */
+.success {
+  padding: 1rem;
+  border-left: 0.3rem solid var(--arduino);
+  border-radius: 0.5rem;
+  background: var(--soft);
+  font-weight: 600;
+}
+
+/* Regular links inside the contact section */
+#contact a:not(.button) {
+  color: var(--blue);
+  text-underline-offset: 0.2em;
+}
+
+/* Compact tweaks for the contact section */
+#contact { max-width: 40rem; }
+#contact > p { margin: 0 0 0.5rem; }
+#join-form { max-width: 34rem; margin-block: 1rem 2rem; }
+#contact h3 { margin-top: 1.5rem; margin-bottom: 0.25rem; }
+#contact h3 + p { margin: 0; font-size: 1rem; }
+.field { margin-bottom: 1rem; }
+
+
+/* ============================================================
+   15. FOOTER
+   ============================================================ */
+
+/* Dark bar at the bottom of the page */
+footer {
+  padding-block: 3rem;
+  background: var(--blue);
+  color: var(--white);
+}
+
+/* Footer links: orange by default */
+footer a {
+  color: var(--accent);
+  text-underline-offset: 0.2em;
+  transition: color 0.2s ease;
+}
+
+/* Footer links turn white on hover */
+footer a:hover {
+  color: var(--white);
+}
+
+/* Keep the button text dark on the dark background */
+footer .button,
+footer .button,
+footer .button:hover {
+  color: var(--blue);
+}
+
+
+/* ============================================================
+   16. ACCESSIBILITY
+   ============================================================ */
+
+/* Visible focus ring for keyboard users */
+:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+}
+
+/* Focus colour on dark backgrounds */
+header :focus-visible,
+footer :focus-visible {
+  outline-color: var(--accent);
+}
+
+/* Focus colour on the hero */
+#home :focus-visible {
+  outline-color: var(--white);
+}
+
+/* Turn off transitions if the user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    transition: none;
+  }
+}

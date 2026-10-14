@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <!-- Page metadata -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KwetuTech</title>
+    <!-- Set this to the API origin if the API is hosted separately. -->
+    <meta name="api-base-url" content="http://127.0.0.1:8000">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="Style.CSS">
+
+    <!-- JavaScript (deferred so it runs after the page loads) -->
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+<!-- ============================================================
+     HEADER + NAVIGATION
+     Sticky bar at the top with logo, hamburger button and menu.
+     ============================================================ -->
+<header>
+  <!-- Hamburger button (mobile). aria-expanded is toggled by JS -->
+  <button id="menu-button" aria-label="Menu" aria-expanded="false" aria-controls="menu"></button>
+
+  <!-- Site name / logo, links back to the top -->
+  <a href="#home" class="logo">Kwetutech</a>
+
+  <!-- Main navigation menu -->
+  <nav id="menu" aria-label="Main navigation">
+    <a href="#about">About</a>
+    <a href="#what-we-do">What We Do</a>
+    <a href="#projects">Our Projects</a>
+    <a href="#impact">Our Impact</a>
+    <a href="#story">Our Story</a>
+    <a href="#vision">Our Vision</a>
+    <a href="#get-involved">Get Involved</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+    <!-- ============================================================
+         HOME  (#home)
+         Full-height hero with the main message and a call to action.
+         ============================================================ -->
+    <section id="home">
+        <h1>Young Congolese learning technology by building it.</h1>
+        <p>Discover. Learn. Build. Experiment. Fail. Improve. Create.</p>
+        <a href="#projects" class="button">See what we are building</a>
+    </section>
+
+
+    <!-- ============================================================
+         ABOUT  (#about)
+         Short intro + a photo of the learners.
+         ============================================================ -->
+    <section id="about">
+        <h2>About Kwetutech</h2>
+        <p>Kwetutech is a youth-led initiative started by young Congolese. We help young people discover technology by learning, experimenting, building, and solving real problems.</p>
+        <p>It grew from hands-on experiments with electronics, Arduino, sensors, and embedded systems.</p>
+        <img src="IMAGES/Students.jpg" alt="Young Congolese learners">
+    </section>
+
+
+    <!-- ============================================================
+         WHAT WE DO  (#what-we-do)
+         Three cards describing what the initiative does.
+         ============================================================ -->
+    <section id="what-we-do">
+        <h2>What We Do</h2>
+
+        <!-- Card 1 -->
+        <article>
+            <h3>We experiment</h3>
+            <p>We work with electronics, Arduino, and sensors, and we try things to see what happens.</p>
+        </article>
+
+        <!-- Card 2 -->
+        <article>
+            <h3>We build</h3>
+            <p>We turn ideas into working prototypes, even with limited resources.</p>
+        </article>
+
+        <!-- Card 3 -->
+        <article>
+            <h3>We learn together</h3>
+            <p>Young people mentor each other. When something fails, we find out why and improve it.</p>
+        </article>
+    </section>
+
+
+    <!-- ============================================================
+         OUR PROJECTS  (#projects)
+         Cards showing the prototypes the team has built.
+         ============================================================ -->
+    <section id="projects">
+        <h2>Our Projects</h2>
+
+        <!-- Project 1: water-level prototype -->
+        <article>
+            <img src="IMAGES/Waterlevel.jpg" alt="Water-level prototype">
+            <h3>Water-level prototype</h3>
+            <p>A system that senses water level using electronics and sensors.</p>
+        </article>
+
+        <!-- Project 2: automatic dustbin -->
+        <article>
+            <img src="IMAGES/AUtomatic dustbin.jpg" alt="Automatic dustbin">
+            <h3>Automatic dustbin</h3>
+            <p>A dustbin that works automatically, built with Arduino and sensors.</p>
+        </article>
+
+        <!-- Project 3: automatic gate -->
+        <article>
+            <img src="IMAGES/automatic Gate.jpg" alt="Automatic gate">
+            <h3>Automatic gate</h3>
+            <p>A gate that opens and closes automatically, using embedded systems.</p>
+        </article>
+
+        <!-- Project 4: mining safety (no image yet) -->
+        <article>
+            <h3>Mining-safety technology</h3>
+            <p>Technology ideas to make mining work safer.</p>
+        </article>
+    </section>
+
+
+    <!-- ============================================================
+         OUR IMPACT  (#impact)
+         Intro text + three photo cards with short captions.
+         ============================================================ -->
+    <section id="impact">
+        <h2>Our Impact</h2>
+        <p>Young people who had only heard about technology are now making it work with their own hands.</p>
+        <p>Limited resources became practical experiments, and experiments became real prototypes.</p>
+
+        <div class="impact-grid">
+
+            <!-- Impact photo 1 -->
+            <figure>
+                <img src="IMAGES/AFR.jpg" alt="Young learners testing a circuit">
+                <figcaption>
+                    <strong>Learning by doing</strong>
+                    Every session starts with a real component in hand — not a textbook.
+                </figcaption>
+            </figure>
+
+            <!-- Impact photo 2 -->
+            <figure>
+                <img src="IMAGES/im.jpg" alt="Students building a prototype together">
+                <figcaption>
+                    <strong>Building together</strong>
+                    Older students mentor younger ones, so skills stay in the community.
+                </figcaption>
+            </figure>
+
+            <!-- Impact photo 3 -->
+            <figure>
+                <img src="IMAGES/Girls.jpg" alt="A finished student prototype">
+                <figcaption>
+                    <strong>From idea to prototype</strong>
+                    What starts as curiosity becomes a working solution for real problems.
+                </figcaption>
+            </figure>
+
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+         OUR STORY  (#story)
+         How the initiative started.
+         ============================================================ -->
+    <section id="story">
+        <h2>Our Story</h2>
+        <p>Kwetutech began with a few young Congolese who wanted to understand how technology works by building it themselves.</p>
+        <p>We did not start with a big budget or a classroom. We started with small components, curiosity, and the decision to try.</p>
+    </section>
+
+
+    <!-- ============================================================
+         OUR VISION  (#vision)
+         Where the initiative is going.
+         ============================================================ -->
+    <section id="vision">
+        <h2>Our Vision</h2>
+        <p>We want every young Congolese who is curious about technology to have a place to build, to fail safely, and to improve.</p>
+        <p>We want to grow a generation of creators and problem-solvers who build solutions for their own communities.</p>
+    </section>
+
+
+    <!-- ============================================================
+         GET INVOLVED  (#get-involved)
+         Three ways to support + a button to the contact form.
+         ============================================================ -->
+    <section id="get-involved">
+        <h2>Get Involved</h2>
+
+        <!-- Option 1 -->
+        <article>
+            <h3>Join us</h3>
+            <p>Are you a young person curious about technology? Come and build with us.</p>
+        </article>
+
+        <!-- Option 2 -->
+        <article>
+            <h3>Mentor</h3>
+            <p>Do you know electronics, programming, or engineering? Share what you know.</p>
+        </article>
+
+        <!-- Option 3 -->
+        <article>
+            <h3>Support</h3>
+            <p>Components, tools, and funding help us turn more ideas into prototypes.</p>
+        </article>
+
+        <!-- Call to action -->
+        <a href="#contact" class="button">Join Us Now</a>
+    </section>
+
+
+    <!-- ============================================================
+         CONTACT  (#contact)
+         Join form whose fields change based on the chosen role.
+         ============================================================ -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Tell us how you want to be part of Kwetutech.</p>
+
+        <!-- novalidate: we validate with JavaScript instead of the browser -->
+        <form id="join-form" novalidate>
+
+            <!-- Choose role: Student / Teacher / Donate -->
+            <div class="field">
+                <label for="join-type">How do you want to join Kwetutech?</label>
+                <select id="join-type" name="joinType">
+                    <option value="">Choose an option</option>
+                    <option value="student">Student</option>
+                    <option value="teacher">Teacher</option>
+                    <option value="donate">Donate</option>
+                </select>
+            </div>
+
+            <!-- PERSONAL FIELDS: shown for Student and Teacher -->
+            <div id="personal-fields" hidden>
+
+                <!-- Full name -->
+                <div class="field">
+                    <label for="full-name">Full Name</label>
+                    <input type="text" id="full-name" name="fullName" autocomplete="name" required>
+                    <p class="error" role="alert"></p>
+                </div>
+
+                <!-- Email -->
+                <div class="field">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" autocomplete="email" required>
+                    <p class="error" role="alert"></p>
+                </div>
+
+                <!-- Phone -->
+                <div class="field">
+                    <label for="phone">Contact / Phone Number</label>
+                    <input type="tel" id="phone" name="phone" autocomplete="tel" required>
+                    <p class="error" role="alert"></p>
+                </div>
+
+                <!-- Country (filled by JS) -->
+                <div class="field">
+                    <label for="country">Country</label>
+                    <select id="country" name="country" autocomplete="country-name" required>
+                        <option value="">Choose your country</option>
+                    </select>
+                    <p class="error" role="alert"></p>
+                </div>
+
+                <!-- City -->
+                <div class="field">
+                    <label for="city">City / Location (where you live)</label>
+                    <input type="text" id="city" name="city" autocomplete="address-level2" required>
+                    <p class="error" role="alert"></p>
+                </div>
+
+                <div class="field">
+                    <label for="consent">
+                        <input type="checkbox" id="consent" name="consent" required>
+                        I agree that KwetuTech may use these details to review my application and contact me.
+                    </label>
+                    <p class="error" role="alert"></p>
+                </div>
+            </div>
+
+            <!-- STUDENT FIELDS: shown only when role = Student -->
+            <div id="student-fields" hidden>
+
+                <!-- How they heard about Kwetutech -->
+                <div class="field">
+                    <label for="heard-from">How did you hear about Kwetutech?</label>
+                    <select id="heard-from" name="heardFrom" required>
+                        <option value="">Choose an option</option>
+                        <option value="Social media">Social media</option>
+                        <option>Friend</option>
+                        <option>School / University</option>
+                        <option>Event</option>
+                        <option>Google / Search</option>
+                        <option>Other</option>
+                    </select>
+                    <p class="error" role="alert"></p>
+                </div>
+
+                <!-- Optional social media link -->
+                <div class="field">
+                    <label for="social">Social media account or link (optional)</label>
+                    <input type="text" id="social" name="social">
+                </div>
+
+                <!-- Experience level -->
+                <div class="field">
+                    <label for="student-level">What is your experience with Arduino or embedded systems?</label>
+                    <select id="student-level" name="level" required>
+                        <option value="">Choose an option</option>
+                        <option>No experience</option>
+                        <option>Beginner</option>
+                        <option>Intermediate</option>
+                        <option>Advanced</option>
+                    </select>
+                    <p class="error" role="alert"></p>
+                </div>
+
+                <!-- Optional experience description -->
+                <div class="field">
+                    <label for="student-experience">Briefly explain your experience (optional)</label>
+                    <textarea id="student-experience" name="experience" rows="4"></textarea>
+                </div>
+
+                <!-- Motivation (150–200 words) -->
+                <div class="field">
+                    <label for="student-why">Why do you want to join Kwetutech?</label>
+                    <textarea id="student-why" name="why" rows="8" required></textarea>
+                    <p class="hint">Write between 150 and 200 words. <span id="word-counter">0 / 200 words</span></p>
+                    <p class="error" role="alert"></p>
+                </div>
+            </div>
+
+            <!-- TEACHER FIELDS: shown only when role = Teacher -->
+            <div id="teacher-fields" hidden>
+
+                <!-- Teacher experience -->
+                <div class="field">
+                    <label for="teacher-experience">What is your knowledge or experience with Arduino or embedded systems?</label>
+                    <textarea id="teacher-experience" name="experience" rows="5" required></textarea>
+                    <p class="error" role="alert"></p>
+                </div>
+
+                <!-- Teacher motivation -->
+                <div class="field">
+                    <label for="teacher-why">Why do you want to join Kwetutech as a teacher?</label>
+                    <textarea id="teacher-why" name="why" rows="5" required></textarea>
+                    <p class="error" role="alert"></p>
+                </div>
+            </div>
+
+            <!-- DONATE INFO: shown only when role = Donate -->
+            <div id="donate-info" hidden>
+                <p>Thank you for your interest in supporting Kwetutech. To proceed with a donation, please contact us using the details below.</p>
+                <a href="mailto:EMAIL-HERE" class="button">Contact Us to Donate</a>
+            </div>
+
+            <!-- Submit button (only for Student / Teacher) -->
+            <button type="submit" id="submit-button" class="button" hidden>Submit Application</button>
+
+            <!-- Success message after submitting -->
+            <p id="form-success" class="success" role="status" hidden>Thank you for your interest in joining Kwetutech. Your application has been completed successfully.</p>
+            <p id="form-error" class="error" role="alert" hidden></p>
+        </form>
+    </section>
+
+</main>
+
+
+<!-- ============================================================
+     FOOTER
+     Short recap + contact info + quick links + join button.
+     ============================================================ -->
+<footer>
+    <h2>Kwetutech</h2>
+    <p>Young Congolese learning technology by building it.</p>
+
+    <!-- Contact info -->
+    <p>
+        Email: <a href="mailto:safingendahayo@mail.com">safingendahayo@mail.com</a><br>
+        Location: DRC, Goma
+    </p>
+
+    <!-- Quick links to main sections -->
+    <p>
+        <a href="#home">Home</a> ·
+        <a href="#about">About</a> ·
+        <a href="#projects">Projects</a> ·
+        <a href="#get-involved">Get Involved</a> ·
+        <a href="#contact">Contact</a>
+    </p>
+
+    <!-- Call to action -->
+    <a href="#get-involved" class="button">Join Us Now</a>
+
+    <!-- Copyright line -->
+    <p>&copy; 2026 Kwetutech. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

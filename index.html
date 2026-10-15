@@ -34,7 +34,6 @@
     <a href="#what-we-do">What We Do</a>
     <a href="#projects">Our Projects</a>
     <a href="#impact">Our Impact</a>
-    <a href="#story">Our Story &amp; Vision</a>
     <a href="#get-involved">Get Involved</a>
     <a href="#contact">Contact</a>
   </nav>
@@ -215,10 +214,26 @@
 
     <!-- ============================================================
          OUR IMPACT  (#impact)
-         Intro text + three photo cards with short captions.
+         Story, vision and mission, followed by impact photos.
          ============================================================ -->
     <section id="impact">
         <h2>Our Impact</h2>
+
+        <div class="impact-pillars">
+            <article>
+                <h3>Our Story</h3>
+                <p>Kwetutech began with a few young Congolese who wanted to understand how technology works by building it themselves. We started with small components, curiosity, and the decision to try.</p>
+            </article>
+            <article>
+                <h3>Our Vision</h3>
+                <p>We want every young Congolese who is curious about technology to have a place to build, to fail safely, and to improve—growing a generation of creators and problem-solvers.</p>
+            </article>
+            <article>
+                <h3>Our Mission</h3>
+                <p>We make hands-on technology learning accessible and help young people build practical solutions for their communities through experimentation, workshops, and shared learning.</p>
+            </article>
+        </div>
+
         <p>Young people who had only heard about technology are now making it work with their own hands.</p>
         <p>Limited resources became practical experiments, and experiments became real prototypes.</p>
 
@@ -256,21 +271,6 @@
 
 
     <!-- ============================================================
-         OUR STORY & VISION  (#story)
-         How the initiative started and where it is going.
-         ============================================================ -->
-    <section id="story">
-        <h2>Our Story &amp; Vision</h2>
-        <h3>Our Story</h3>
-        <p>Kwetutech began with a few young Congolese who wanted to understand how technology works by building it themselves.</p>
-        <p>We did not start with a big budget or a classroom. We started with small components, curiosity, and the decision to try.</p>
-        <h3>Our Vision</h3>
-        <p>We want every young Congolese who is curious about technology to have a place to build, to fail safely, and to improve.</p>
-        <p>We want to grow a generation of creators and problem-solvers who build solutions for their own communities.</p>
-    </section>
-
-
-    <!-- ============================================================
          GET INVOLVED  (#get-involved)
          Three ways to support + a button to the contact form.
          ============================================================ -->
@@ -300,193 +300,190 @@
     </section>
 
 
-    <!-- ============================================================
-         CONTACT  (#contact)
-         Join form whose fields change based on the chosen role.
-         ============================================================ -->
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Tell us how you want to be part of Kwetutech.</p>
-
-        <!-- novalidate: we validate with JavaScript instead of the browser -->
-        <form id="join-form" novalidate>
-
-            <!-- Choose role: Student / Teacher / Donate -->
-            <div class="field">
-                <label for="join-type">How do you want to join Kwetutech?</label>
-                <select id="join-type" name="joinType">
-                    <option value="">Choose an option</option>
-                    <option value="student">Student</option>
-                    <option value="teacher">Teacher</option>
-                    <option value="donate">Donate</option>
-                </select>
-            </div>
-
-            <!-- PERSONAL FIELDS: shown for Student and Teacher -->
-            <div id="personal-fields" hidden>
-
-                <!-- Full name -->
-                <div class="field">
-                    <label for="full-name">Full Name</label>
-                    <input type="text" id="full-name" name="fullName" autocomplete="name" required>
-                    <p class="error" role="alert"></p>
-                </div>
-
-                <!-- Email -->
-                <div class="field">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" autocomplete="email" required>
-                    <p class="error" role="alert"></p>
-                </div>
-
-                <!-- Phone -->
-                <div class="field">
-                    <label for="phone">Contact / Phone Number</label>
-                    <input type="tel" id="phone" name="phone" autocomplete="tel" required>
-                    <p class="error" role="alert"></p>
-                </div>
-
-                <!-- Country (filled by JS) -->
-                <div class="field">
-                    <label for="country">Country</label>
-                    <select id="country" name="country" autocomplete="country-name" required>
-                        <option value="">Choose your country</option>
-                    </select>
-                    <p class="error" role="alert"></p>
-                </div>
-
-                <!-- City -->
-                <div class="field">
-                    <label for="city">City / Location (where you live)</label>
-                    <input type="text" id="city" name="city" autocomplete="address-level2" required>
-                    <p class="error" role="alert"></p>
-                </div>
-
-                <div class="field">
-                    <label for="consent">
-                        <input type="checkbox" id="consent" name="consent" required>
-                        I agree that KwetuTech may use these details to review my application and contact me.
-                    </label>
-                    <p class="error" role="alert"></p>
-                </div>
-            </div>
-
-            <!-- STUDENT FIELDS: shown only when role = Student -->
-            <div id="student-fields" hidden>
-
-                <!-- How they heard about Kwetutech -->
-                <div class="field">
-                    <label for="heard-from">How did you hear about Kwetutech?</label>
-                    <select id="heard-from" name="heardFrom" required>
-                        <option value="">Choose an option</option>
-                        <option value="Social media">Social media</option>
-                        <option>Friend</option>
-                        <option>School / University</option>
-                        <option>Event</option>
-                        <option>Google / Search</option>
-                        <option>Other</option>
-                    </select>
-                    <p class="error" role="alert"></p>
-                </div>
-
-                <!-- Optional social media link -->
-                <div class="field">
-                    <label for="social">Social media account or link (optional)</label>
-                    <input type="text" id="social" name="social">
-                </div>
-
-                <!-- Experience level -->
-                <div class="field">
-                    <label for="student-level">What is your experience with Arduino or embedded systems?</label>
-                    <select id="student-level" name="level" required>
-                        <option value="">Choose an option</option>
-                        <option>No experience</option>
-                        <option>Beginner</option>
-                        <option>Intermediate</option>
-                        <option>Advanced</option>
-                    </select>
-                    <p class="error" role="alert"></p>
-                </div>
-
-                <!-- Optional experience description -->
-                <div class="field">
-                    <label for="student-experience">Briefly explain your experience (optional)</label>
-                    <textarea id="student-experience" name="experience" rows="4"></textarea>
-                </div>
-
-                <!-- Motivation (150–200 words) -->
-                <div class="field">
-                    <label for="student-why">Why do you want to join Kwetutech?</label>
-                    <textarea id="student-why" name="why" rows="8" required></textarea>
-                    <p class="hint">Write between 150 and 200 words. <span id="word-counter">0 / 200 words</span></p>
-                    <p class="error" role="alert"></p>
-                </div>
-            </div>
-
-            <!-- TEACHER FIELDS: shown only when role = Teacher -->
-            <div id="teacher-fields" hidden>
-
-                <!-- Teacher experience -->
-                <div class="field">
-                    <label for="teacher-experience">What is your knowledge or experience with Arduino or embedded systems?</label>
-                    <textarea id="teacher-experience" name="experience" rows="5" required></textarea>
-                    <p class="error" role="alert"></p>
-                </div>
-
-                <!-- Teacher motivation -->
-                <div class="field">
-                    <label for="teacher-why">Why do you want to join Kwetutech as a teacher?</label>
-                    <textarea id="teacher-why" name="why" rows="5" required></textarea>
-                    <p class="error" role="alert"></p>
-                </div>
-            </div>
-
-            <!-- DONATE INFO: shown only when role = Donate -->
-            <div id="donate-info" hidden>
-                <p>Thank you for your interest in supporting Kwetutech. To proceed with a donation, please contact us using the details below.</p>
-                <a href="mailto:EMAIL-HERE" class="button">Contact Us to Donate</a>
-            </div>
-
-            <!-- Submit button (only for Student / Teacher) -->
-            <button type="submit" id="submit-button" class="button" hidden>Submit Application</button>
-
-            <!-- Success message after submitting -->
-            <p id="form-success" class="success" role="status" hidden>Thank you for your interest in joining Kwetutech. Your application has been completed successfully.</p>
-            <p id="form-error" class="error" role="alert" hidden></p>
-        </form>
-    </section>
-
 </main>
 
+<section class="impact-stats" aria-labelledby="impact-stats-heading">
+    <h2 id="impact-stats-heading">Growing Our Impact</h2>
+    <ul>
+        <li><strong>300+</strong><span>Students</span></li>
+        <li><strong>50+</strong><span>Mentors</span></li>
+        <li><strong>7</strong><span>Projects featured</span></li>
+        <li><strong>12</strong><span>Partner organizations listed</span></li>
+        <li><strong>3</strong><span>Learning pillars</span></li>
+    </ul>
+</section>
+
+<section class="partners-section" aria-labelledby="partners-heading">
+    <h2 id="partners-heading">Our Partners</h2>
+    <ul class="partner-list">
+        <li>IEEE</li>
+        <li>Arduino</li>
+        <li>SoC</li>
+        <li>IBM</li>
+        <li>UNIGOM</li>
+        <li>ISTA</li>
+        <li>ULPGL</li>
+        <li>MIT</li>
+        <li>Stanford</li>
+        <li>MASTERCARD</li>
+        <li>ALA</li>
+        <li>CDA</li>
+    </ul>
+</section>
 
 <!-- ============================================================
      FOOTER
-     Short recap + contact info + quick links + join button.
+     Contact details and the application form.
      ============================================================ -->
 <footer>
-    <h2>Kwetutech</h2>
-    <p>Young Congolese learning technology by building it.</p>
+    <div class="footer-inner">
+        <div class="footer-columns">
+            <div class="footer-brand">
+                <h2 id="footer-brand-heading">Kwetutech</h2>
+                <p>Young Congolese learning technology by building it.</p>
+            </div>
 
-    <!-- Contact info -->
-    <p>
-        Email: <a href="mailto:safingendahayo@mail.com">safingendahayo@mail.com</a><br>
-        Location: DRC, Goma
-    </p>
+            <nav class="footer-navigation" aria-label="Footer navigation">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#impact">Our Impact</a></li>
+                    <li><a href="#get-involved">Get Involved</a></li>
+                </ul>
+            </nav>
 
-    <!-- Quick links to main sections -->
-    <p>
-        <a href="#home">Home</a> ·
-        <a href="#about">About</a> ·
-        <a href="#projects">Projects</a> ·
-        <a href="#get-involved">Get Involved</a> ·
-        <a href="#contact">Contact</a>
-    </p>
+            <div class="footer-contact">
+                <h3>Contact</h3>
+                <p><a href="mailto:safingendahayo@mail.com">safingendahayo@mail.com</a></p>
+                <p>Goma, Democratic Republic of the Congo</p>
+                <a href="#contact">Join our community</a>
+            </div>
+        </div>
 
-    <!-- Call to action -->
-    <a href="#get-involved" class="button">Join Us Now</a>
+        <section id="contact" class="footer-application" aria-labelledby="footer-contact-heading">
+            <h2 id="footer-contact-heading">Contact &amp; Join Us</h2>
+            <p>Tell us how you want to be part of Kwetutech.</p>
+            <details>
+                <summary>Open the application form</summary>
+                <!-- novalidate: we validate with JavaScript instead of the browser -->
+                <form id="join-form" novalidate>
+                    <div class="field">
+                        <label for="join-type">How do you want to join Kwetutech?</label>
+                        <select id="join-type" name="joinType">
+                            <option value="">Choose an option</option>
+                            <option value="student">Student</option>
+                            <option value="teacher">Teacher</option>
+                            <option value="donate">Donate</option>
+                        </select>
+                    </div>
 
-    <!-- Copyright line -->
-    <p>&copy; 2026 Kwetutech. All rights reserved.</p>
+                    <div id="personal-fields" hidden>
+                        <div class="field">
+                            <label for="full-name">Full Name</label>
+                            <input type="text" id="full-name" name="fullName" autocomplete="name" required>
+                            <p class="error" role="alert"></p>
+                        </div>
+                        <div class="field">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" autocomplete="email" required>
+                            <p class="error" role="alert"></p>
+                        </div>
+                        <div class="field">
+                            <label for="phone">Contact / Phone Number</label>
+                            <input type="tel" id="phone" name="phone" autocomplete="tel" required>
+                            <p class="error" role="alert"></p>
+                        </div>
+                        <div class="field">
+                            <label for="country">Country</label>
+                            <select id="country" name="country" autocomplete="country-name" required>
+                                <option value="">Choose your country</option>
+                            </select>
+                            <p class="error" role="alert"></p>
+                        </div>
+                        <div class="field">
+                            <label for="city">City / Location (where you live)</label>
+                            <input type="text" id="city" name="city" autocomplete="address-level2" required>
+                            <p class="error" role="alert"></p>
+                        </div>
+                        <div class="field">
+                            <label for="consent">
+                                <input type="checkbox" id="consent" name="consent" required>
+                                I agree that KwetuTech may use these details to review my application and contact me.
+                            </label>
+                            <p class="error" role="alert"></p>
+                        </div>
+                    </div>
+
+                    <div id="student-fields" hidden>
+                        <div class="field">
+                            <label for="heard-from">How did you hear about Kwetutech?</label>
+                            <select id="heard-from" name="heardFrom" required>
+                                <option value="">Choose an option</option>
+                                <option value="Social media">Social media</option>
+                                <option>Friend</option>
+                                <option>School / University</option>
+                                <option>Event</option>
+                                <option>Google / Search</option>
+                                <option>Other</option>
+                            </select>
+                            <p class="error" role="alert"></p>
+                        </div>
+                        <div class="field">
+                            <label for="social">Social media account or link (optional)</label>
+                            <input type="text" id="social" name="social">
+                        </div>
+                        <div class="field">
+                            <label for="student-level">What is your experience with Arduino or embedded systems?</label>
+                            <select id="student-level" name="level" required>
+                                <option value="">Choose an option</option>
+                                <option>No experience</option>
+                                <option>Beginner</option>
+                                <option>Intermediate</option>
+                                <option>Advanced</option>
+                            </select>
+                            <p class="error" role="alert"></p>
+                        </div>
+                        <div class="field">
+                            <label for="student-experience">Briefly explain your experience (optional)</label>
+                            <textarea id="student-experience" name="experience" rows="4"></textarea>
+                        </div>
+                        <div class="field">
+                            <label for="student-why">Why do you want to join Kwetutech?</label>
+                            <textarea id="student-why" name="why" rows="8" required></textarea>
+                            <p class="hint">Write between 150 and 200 words. <span id="word-counter">0 / 200 words</span></p>
+                            <p class="error" role="alert"></p>
+                        </div>
+                    </div>
+
+                    <div id="teacher-fields" hidden>
+                        <div class="field">
+                            <label for="teacher-experience">What is your knowledge or experience with Arduino or embedded systems?</label>
+                            <textarea id="teacher-experience" name="experience" rows="5" required></textarea>
+                            <p class="error" role="alert"></p>
+                        </div>
+                        <div class="field">
+                            <label for="teacher-why">Why do you want to join Kwetutech as a teacher?</label>
+                            <textarea id="teacher-why" name="why" rows="5" required></textarea>
+                            <p class="error" role="alert"></p>
+                        </div>
+                    </div>
+
+                    <div id="donate-info" hidden>
+                        <p>Thank you for your interest in supporting Kwetutech. To proceed with a donation, please contact us using the details below.</p>
+                        <a href="mailto:safingendahayo@mail.com" class="button">Contact Us to Donate</a>
+                    </div>
+
+                    <button type="submit" id="submit-button" class="button" hidden>Submit Application</button>
+                    <p id="form-success" class="success" role="status" hidden>Thank you for your interest in joining Kwetutech. Your application has been completed successfully.</p>
+                    <p id="form-error" class="error" role="alert" hidden></p>
+                </form>
+            </details>
+        </section>
+
+        <p class="footer-copyright">&copy; 2026 Kwetutech. All rights reserved.</p>
+    </div>
 </footer>
 
 </body>

@@ -1,17 +1,21 @@
 <!DOCTYPE html>
+<!--
+    KwetuTech's single-page site: the sections below introduce the initiative,
+    show its work and impact, and provide navigation and a community application.
+-->
 <html lang="en-US">
 <head>
-    <!-- Page metadata -->
+    <!-- Browser metadata keeps text encoding and mobile sizing consistent. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KwetuTech</title>
-    <!-- Set this to the API origin if the API is hosted separately. -->
+    <!-- JavaScript posts validated applications to this API base URL. -->
     <meta name="api-base-url" content="http://127.0.0.1:8000">
 
-    <!-- Stylesheet -->
+    <!-- Shared stylesheet controls the visual design and responsive layouts. -->
     <link rel="stylesheet" href="Style.CSS">
 
-    <!-- JavaScript (deferred so it runs after the page loads) -->
+    <!-- Deferred script wires the menu, application form, and country options. -->
     <script src="script.js" defer></script>
 </head>
 
@@ -92,6 +96,7 @@
             <p>Young people mentor each other. When something fails, we find out why and improve it.</p>
         </article>
 
+        <!-- Video examples link visitors to hands-on embedded-systems projects. -->
         <h3 class="videos-title">See what embedded systems can do</h3>
         <p class="videos-intro">From tiny sensors to helpful robots, these hands-on projects show how curious ideas become technology you can see, touch, and use.</p>
 
@@ -158,6 +163,7 @@
          OUR PROJECTS  (#projects)
          Cards showing the prototypes the team has built.
          ============================================================ -->
+    <!-- Project gallery: seven prototypes presented as responsive cards. -->
     <section id="projects">
         <h2>Our Projects</h2>
 
@@ -216,6 +222,7 @@
          OUR IMPACT  (#impact)
          Story, vision and mission, followed by impact photos.
          ============================================================ -->
+    <!-- Impact combines the initiative's story with learner and project photos. -->
     <section id="impact">
         <h2>Our Impact</h2>
 
@@ -302,32 +309,29 @@
 
 </main>
 
+<!-- At-a-glance numbers summarize the initiative's reach and learning focus. -->
 <section class="impact-stats" aria-labelledby="impact-stats-heading">
     <h2 id="impact-stats-heading">Growing Our Impact</h2>
     <ul>
         <li><strong>300+</strong><span>Students</span></li>
         <li><strong>50+</strong><span>Mentors</span></li>
         <li><strong>7</strong><span>Projects featured</span></li>
-        <li><strong>12</strong><span>Partner organizations listed</span></li>
+        <li><strong>7</strong><span>Partner organizations</span></li>
         <li><strong>3</strong><span>Learning pillars</span></li>
     </ul>
 </section>
 
+<!-- Partner marks supplied by the project owner; alt text names each organization. -->
 <section class="partners-section" aria-labelledby="partners-heading">
     <h2 id="partners-heading">Our Partners</h2>
     <ul class="partner-list">
-        <li>IEEE</li>
-        <li>Arduino</li>
-        <li>SoC</li>
-        <li>IBM</li>
-        <li>UNIGOM</li>
-        <li>ISTA</li>
-        <li>ULPGL</li>
-        <li>MIT</li>
-        <li>Stanford</li>
-        <li>MASTERCARD</li>
-        <li>ALA</li>
-        <li>CDA</li>
+        <li><img src="IMAGES/partners/mastercard.png" alt="Mastercard"></li>
+        <li><img src="IMAGES/partners/ieee.png" alt="IEEE"></li>
+        <li><img src="IMAGES/partners/ibm.png" alt="IBM"></li>
+        <li><img src="IMAGES/partners/mit.png" alt="Massachusetts Institute of Technology"></li>
+        <li><img src="IMAGES/partners/stanford.png" alt="Stanford University"></li>
+        <li><img src="IMAGES/partners/ala.png" alt="African Leadership Academy"></li>
+        <li><img src="IMAGES/partners/arduino.png" alt="Arduino"></li>
     </ul>
 </section>
 
@@ -337,18 +341,20 @@
      ============================================================ -->
 <footer>
     <div class="footer-inner">
+        <!-- Brand, internal page links, and direct contact details. -->
         <div class="footer-columns">
             <div class="footer-brand">
-                <h2 id="footer-brand-heading">Kwetutech</h2>
+                <h2 id="footer-brand-heading">KwetuTech</h2>
                 <p>Young Congolese learning technology by building it.</p>
             </div>
 
             <nav class="footer-navigation" aria-label="Footer navigation">
-                <h3>Navigation</h3>
+                <h3>Quick Navigation</h3>
                 <ul>
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#what-we-do">What We Do</a></li>
+                    <li><a href="#projects">Our Projects</a></li>
                     <li><a href="#impact">Our Impact</a></li>
                     <li><a href="#get-involved">Get Involved</a></li>
                 </ul>
@@ -358,16 +364,18 @@
                 <h3>Contact</h3>
                 <p><a href="mailto:safingendahayo@mail.com">safingendahayo@mail.com</a></p>
                 <p>Goma, Democratic Republic of the Congo</p>
-                <a href="#contact">Join our community</a>
+                <!-- JavaScript opens the application dialog and moves keyboard focus. -->
+                <a id="community-link" href="#join-application">Join our community</a>
             </div>
         </div>
 
+        <!-- The existing application stays in the page and opens in a square dialog. -->
         <section id="contact" class="footer-application" aria-labelledby="footer-contact-heading">
             <h2 id="footer-contact-heading">Contact &amp; Join Us</h2>
             <p>Tell us how you want to be part of Kwetutech.</p>
-            <details>
+            <details id="join-application">
                 <summary>Open the application form</summary>
-                <!-- novalidate: we validate with JavaScript instead of the browser -->
+                <!-- JavaScript reveals, validates, and submits the appropriate form fields. -->
                 <form id="join-form" novalidate>
                     <div class="field">
                         <label for="join-type">How do you want to join Kwetutech?</label>
@@ -483,6 +491,7 @@
         </section>
 
         <p class="footer-copyright">&copy; 2026 Kwetutech. All rights reserved.</p>
+        <a class="back-to-top" href="#home">Back to top ↑</a>
     </div>
 </footer>
 

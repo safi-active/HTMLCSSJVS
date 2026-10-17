@@ -16,6 +16,9 @@
    12. Contact form
    13. Footer
    14. Accessibility
+   15. Project and video media
+   Each section documents how its styles contribute to the site's layout.
+   ============================================================ */
 /* ============================================================
    1. BASE / VARIABLES
    ============================================================ */
@@ -152,7 +155,7 @@ footer h2 {
 /* Button turns white on hover */
 .button:hover {
   border-color: var(--white);
-  background: var(--white);
+  background: var(--accent);
 }
 
 
@@ -454,6 +457,12 @@ header {
   gap: 1.5rem;
 }
 
+#projects {
+  /* Four columns show all seven projects in two rows on wide screens. */
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
 /* Section title spans the full row */
 #what-we-do h2,
 #projects h2,
@@ -462,10 +471,132 @@ header {
   margin-bottom: 0;
 }
 
-/* "Join Us Now" button spans the full row, sits on the left */
+/* Keep Get Involved compact: the call to action shares the heading row. */
+#get-involved {
+  grid-template-columns: repeat(3, minmax(0, 15rem));
+  justify-content: center;
+  gap: 1rem;
+  padding-block: clamp(2rem, 4vw, 3rem);
+}
+
+#get-involved h2 {
+  grid-column: 1 / 3;
+  align-self: center;
+  margin: 0;
+}
+
 #get-involved .button {
-  grid-column: 1 / -1;
-  justify-self: start;
+  grid-column: 3;
+  grid-row: 1;
+  align-self: center;
+  justify-self: end;
+  margin: 0;
+}
+
+#get-involved article {
+  padding: 1rem;
+  line-height: 1.45;
+}
+
+#get-involved article h3 {
+  margin-bottom: 0.35rem;
+  font-size: 1.1rem;
+}
+
+#get-involved article p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 62rem) {
+  /* Give cards more room as available desktop/tablet width decreases. */
+  #projects {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 48rem) {
+  /* Two columns keep project titles and descriptions readable on tablets. */
+  #projects {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 32rem) {
+  /* A single column prevents narrow project cards on small phones. */
+  #projects {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 50rem) {
+  #get-involved {
+    grid-template-columns: repeat(3, minmax(0, 13rem));
+  }
+}
+
+@media (max-width: 42rem) {
+  #get-involved {
+    grid-template-columns: repeat(2, minmax(0, 16rem));
+  }
+
+  #get-involved h2 {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  #get-involved .button {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+  }
+
+  #get-involved article:last-of-type {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: min(100%, 16rem);
+  }
+}
+
+@media (max-width: 36rem) {
+  #get-involved {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.45rem;
+    padding-block: 1rem;
+  }
+
+  #get-involved h2,
+  #get-involved .button {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  #get-involved .button {
+    justify-self: start;
+  }
+
+  #get-involved article {
+    display: grid;
+    grid-column: 1;
+    grid-template-columns: minmax(5.5rem, 0.35fr) minmax(0, 1fr);
+    align-items: baseline;
+    gap: 0.5rem;
+    padding: 0.55rem 0.75rem;
+  }
+
+  #get-involved article:last-of-type {
+    justify-self: stretch;
+    width: 100%;
+  }
+
+  #get-involved article p {
+    font-size: 0.9rem;
+  }
+
+  #get-involved .button {
+    padding-block: 0.6rem;
+  }
 }
 
 /* Card look shared by all <article> elements */
@@ -554,12 +685,14 @@ article {
   margin-bottom: 1.25rem;
 }
 
-/* Labels */
+/* Labels are near-black, bold, and comfortably sized for easier reading. */
 .field label {
   display: block;
-  margin-bottom: 0.35rem;
-  color: var(--blue);
-  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #071a2e;
+  font-size: 1.1rem;
+  font-weight: 750;
+  line-height: 1.5;
 }
 
 /* Inputs, selects and textareas share the same look */
@@ -644,18 +777,6 @@ article {
   font-weight: 600;
 }
 
-/* Contact links inside the dark footer */
-#contact a:not(.button) {
-  color: var(--white);
-  text-underline-offset: 0.2em;
-}
-
-/* Compact tweaks for the contact section */
-#contact { max-width: 40rem; }
-#contact > p { margin: 0 0 0.5rem; }
-#join-form { max-width: 34rem; margin-block: 1rem 2rem; }
-#contact h3 { margin-top: 1.5rem; margin-bottom: 0.25rem; }
-#contact h3 + p { margin: 0; font-size: 1rem; }
 .field { margin-bottom: 1rem; }
 
 
@@ -703,7 +824,7 @@ section.impact-stats {
 }
 
 .partners-section {
-  padding-block: 1.5rem;
+  padding-block: 1.25rem;
   background: var(--soft);
   text-align: center;
 }
@@ -713,62 +834,102 @@ section.impact-stats {
 }
 
 .partner-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.35rem 0.75rem;
-  max-width: 58rem;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  align-items: center;
+  gap: 1rem 1.5rem;
+  max-width: 68rem;
   margin: 0 auto;
   padding: 0;
   list-style: none;
 }
 
 .partner-list li {
-  color: var(--blue);
-  font-size: 0.9rem;
-  font-weight: 700;
-  text-align: center;
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  height: 4.5rem;
 }
 
-.partner-list li + li::before {
-  content: "·";
-  margin-right: 0.75rem;
-  color: var(--accent);
+.partner-list img {
+  display: block;
+  width: 100%;
+  max-width: 8rem;
+  height: 4rem;
+  object-fit: contain;
 }
 
-/* Keep the footer compact while giving its content clear separation. */
+@media (max-width: 56rem) {
+  .partner-list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 36rem) {
+  .partner-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem 1rem;
+  }
+
+  .partner-list li {
+    height: 4rem;
+  }
+
+  .partner-list img {
+    max-width: 7rem;
+    height: 3.5rem;
+  }
+}
+
+/* The footer follows the partners as a full-width section, not a floating card. */
 footer {
-  width: min(48rem, calc(100% - 2rem));
-  margin: 0 auto 1rem;
-  padding: 1.25rem clamp(1rem, 3vw, 1.5rem);
-  border-radius: 0.75rem;
+  width: 100%;
+  margin: 0;
+  padding: 3rem max(1.25rem, calc((100% - 68rem) / 2)) 1rem;
+  border-radius: 0;
   background: var(--blue);
   color: var(--white);
-  font-size: 0.9rem;
-  line-height: 1.4;
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 footer .footer-inner {
+  display: flex;
+  flex-direction: column;
   width: 100%;
+  max-width: 68rem;
   margin-inline: auto;
+}
+
+.footer-columns {
+  order: 2;
+  align-items: start;
+  padding-bottom: 2.5rem;
+}
+
+.footer-brand {
+  max-width: 20rem;
 }
 
 footer h2 {
   width: auto;
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.6rem;
   padding: 0;
   border: 0;
-  font-size: 1.35rem;
+  font-size: 1.8rem;
   letter-spacing: 0;
 }
 
 footer h3 {
-  margin-bottom: 0.4rem;
+  margin: 0 0 0.65rem;
   color: var(--white);
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
 .footer-navigation ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.35rem 1rem;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -776,41 +937,41 @@ footer h3 {
 
 .footer-columns {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(7rem, 0.7fr) minmax(0, 1fr);
-  gap: 0.75rem;
-  padding-bottom: 0.75rem;
+  grid-template-columns: minmax(0, 1.15fr) minmax(16rem, 1fr) minmax(0, 0.9fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  padding-bottom: 2rem;
+  align-items: start;
 }
 
 .footer-columns p {
-  margin: 0 0 0.35rem;
-  font-size: 0.9rem;
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
 }
 
-.footer-navigation li + li {
-  margin-top: 0;
+.footer-contact p:last-of-type {
+  margin-bottom: 0.7rem;
 }
 
-.footer-navigation ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.2rem 0.6rem;
+.footer-contact a,
+.footer-navigation a {
+  display: inline-block;
+  min-height: 1.75rem;
 }
 
 .footer-application {
+  order: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(14rem, 22rem);
-  align-items: center;
-  gap: 0.25rem 1.5rem;
+  grid-template-columns: minmax(0, 1fr) minmax(15rem, 22rem);
+  align-items: start;
+  gap: 0.25rem 2rem;
   width: 100%;
   max-width: none;
   margin: 0;
-  padding: 0.75rem 0 0;
-  padding-inline: 0;
-  border-block: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-#contact.footer-application {
-  max-width: none;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-left: 0.3rem solid var(--accent);
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .footer-application h2 {
@@ -818,12 +979,13 @@ footer h3 {
   grid-row: 1;
   margin-bottom: 0.35rem;
   color: var(--white);
+  font-size: 1.4rem;
 }
 
 .footer-application > p {
   grid-column: 1;
   grid-row: 2;
-  margin: 0 0 0.5rem;
+  margin: 0;
 }
 
 #contact details {
@@ -837,20 +999,73 @@ footer h3 {
   color: var(--ink);
 }
 
+#join-application[open] {
+  /* Show the form as a centered square dialog instead of stretching the footer. */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  width: min(90vw, 80vh, 40rem);
+  aspect-ratio: 1;
+  height: auto;
+  max-height: calc(100vh - 2rem);
+  max-height: calc(100dvh - 2rem);
+  margin: 0;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  z-index: 1000;
+  box-shadow: 0 0 0 100vmax rgba(4, 17, 31, 0.72), 0 1.5rem 5rem rgba(0, 0, 0, 0.3);
+}
+
+#join-application[open]::before {
+  /* Dim the page behind the dialog to focus attention on the application. */
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: rgba(4, 17, 31, 0.72);
+}
+
+body:has(#join-application[open]) {
+  /* Keep background content from scrolling while the dialog is open. */
+  overflow: hidden;
+}
+
 #contact details summary {
-  padding: 0.6rem 0.8rem;
+  min-height: 3.25rem;
+  padding: 0.8rem 1rem;
+  border-radius: 0.4rem;
   color: var(--blue);
-  font-weight: 700;
+  font-weight: 750;
   cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#contact details summary:hover {
+  background: #f0833c;
+}
+
+#contact details[open] summary {
+  border-bottom: 1px solid rgba(11, 42, 74, 0.12);
+}
+
+#contact details a:not(.button) {
+  color: var(--blue);
 }
 
 #join-form {
+  /* The square panel stays fixed-size; long application fields scroll within it. */
+  height: 100%;
+  min-height: 0;
+  max-height: 100%;
   max-width: 100%;
   margin: 0;
-  padding: 0 1rem 1rem;
+  padding: 1rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
-/* Footer links: white by default, orange on hover. */
 footer a {
   color: var(--white);
   text-underline-offset: 0.2em;
@@ -861,31 +1076,95 @@ footer a:hover {
   color: var(--accent);
 }
 
-/* Keep the button text dark against its orange background. */
 footer .button,
 footer .button:hover {
   color: var(--blue);
 }
 
 .footer-copyright {
+  order: 3;
   margin: 0;
-  padding-top: 0.5rem;
-  font-size: 0.9rem;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  font-size: 0.85rem;
   text-align: center;
 }
 
-@media (max-width: 42rem) {
+footer .back-to-top {
+  order: 4;
+  display: block;
+  width: fit-content;
+  margin: 0.9rem auto 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.85rem;
+}
+
+footer .back-to-top:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 56rem) {
   .footer-columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem 2rem;
+    padding-bottom: 1.75rem;
+  }
+
+  .footer-navigation {
+    grid-column: 2;
+  }
+
+  .footer-contact {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .footer-contact p {
+    display: inline;
+    margin-right: 1rem;
+  }
+
+  .footer-contact > a {
+    display: inline-block;
+    margin-top: 0.35rem;
+  }
+}
+
+@media (max-width: 42rem) {
+  footer {
+    padding-block: 2rem 1rem;
+  }
+
+  .footer-columns {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.4rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .footer-navigation,
+  .footer-contact {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .footer-navigation ul {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .footer-brand {
-    grid-column: 1 / -1;
+  .footer-contact p {
+    display: block;
+    margin-right: 0;
   }
 
-  /* Stack the join prompt and form control on narrow screens. */
+  .footer-contact > a {
+    margin-top: 0;
+  }
+
   .footer-application {
     grid-template-columns: minmax(0, 1fr);
+    gap: 0.25rem;
+    padding: 1rem;
   }
 
   .footer-application h2,
@@ -893,6 +1172,10 @@ footer .button:hover {
   #contact details {
     grid-column: 1;
     grid-row: auto;
+  }
+
+  #contact details {
+    margin-top: 0.75rem;
   }
 }
 
